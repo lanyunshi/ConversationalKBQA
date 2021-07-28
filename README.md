@@ -50,11 +50,11 @@ CUDA_VISIBLE_DEVICES=1 python code/ConversationKBQA_Runner.py  \
         --test_folder CONVEX/data/test_set \
         --vocab_file config/vocab.txt \
         --output_dir trained_model/convex \
-        --config config/config_MODEL_NAME.json \
+        --config config/config_RecurrentRanker.json \
         --gpu_id 0\
-        --load_model trained_model/convex/MODEL_NAME \
-        --save_model MODEL_NAME+test\
-        --cache_dir /path/to/cache \
+        --load_model trained_model/convex/RecurrentRanker \
+        --save_model RecurrentRanker+test\
+        --cache_dir /PATH/TO/CACHE \
         --num_train_epochs 100 \
         --do_train 0\
         --do_eval 1\
@@ -72,8 +72,14 @@ python code/ErrorAnalysis.py \
 
 We can obtain results as follows:
 CONVEX |
------------- | 
-31.1/34.2 | 
+------------ |
+31.1/34.2 |
+
+The breakdown results are:
+movies | tv_series | music | books | soccer
+------------ |------------ |------------ |------------ |------------ |
+30.3/47.7 | 32.6/50.0 | 30.5/51.3 | 30.9/50.7 | 31.3/50.1 |
+ 
 
 ## Train a New Model
 Before training a new model, make sure the 
@@ -85,15 +91,15 @@ CUDA_VISIBLE_DEVICES=1 python code/ConversationKBQA_Runner.py  \
         --test_folder CONVEX/data/test_set \
         --vocab_file config/vocab.txt \
         --output_dir trained_model/convex \
-        --config config/config_MODEL_NAME.json \
+        --config config/config_RecurrentRanker.json \
         --gpu_id 0\
         --load_model trained_model/convex/new \
         --save_model new \
-        --cache_dir LargeCache/KBQA/CONVEX \
+        --cache_dir /PATH/TO/CACHE \
         --num_train_epochs 100 \
         --do_train 1\
         --do_eval 1\
         --do_policy_gradient 2\
         --learning_rate 3e-5 \
 ```
-
+We can also try baselines (*SimpleRecurrentRanker*, *SimpleRanker*)
