@@ -17,7 +17,7 @@ If you find this code useful in your research, please cite
 All codes were developed and tested in the following environment.
 
 * Ubuntu 18.04
-* Python 2.7.17
+* Python 3.6.9
 * Pytorch 1.4.0
 
 Download the code:
@@ -34,12 +34,22 @@ To obtain the pre-processed data, you can simply run:
 ./DownloadData.sh
 python code/PreProcessConvex.py
 ```
-It takes some time to do the pre-processing. Alternatively, the processed data *CONVEX* can be downloaded from [link]()
+It takes some time to do the pre-processing. Alternatively, the processed data *CONVEX* can be downloaded from [link](https://drive.google.com/drive/folders/1MeQmdvHMLkoz4542N92kUSn1WygL85MJ?usp=sharing)
+
+## Check WikiData API is working
+Simply run:
+```
+python code/SPARQL_test.py
+```
+Check whether the results are:
+```
+{'head': {'vars': ['r', 'e1']}, 'results': {'bindings': [{'e1': {'type': 'uri', 'value': 'http://www.wikidata.org/entity/Q7985008'}, 'r': {'type': 'uri', 'value': 'http://www.wikidata.org/prop/direct/P175'}}]}}
+```
 
 ## Download the Pre-trained Model and the KB cache (optional)
-You can download our pre-trained models from the [link]() and put the files into the path trained_model/ and files into config/
+You can download our pre-trained models from the [link](https://drive.google.com/drive/folders/1MeQmdvHMLkoz4542N92kUSn1WygL85MJ?usp=sharing) and put the files into the path trained_model/ and files into config/
 
-In order to save your time to validate our methods, we also recommend you to download the KB cache that collected during our exploration. You can download our cache from the [link]().
+In order to save your time to validate our methods, we also recommend you to download the KB cache that collected during our exploration. You can download our cache from the [link](https://drive.google.com/drive/folders/1sV-YZanhu80REi2a9bu9Vr-jXziPawXn?usp=sharing).
 
 ## Test the Pre-trained Model
 To test our pre-trained model, simply run:
@@ -62,7 +72,7 @@ CUDA_VISIBLE_DEVICES=1 python code/ConversationKBQA_Runner.py  \
         --learning_rate 3e-5 \
 ```
 
-The predicted answers are saved in *trained_model* folder. To obtain the breakdown results, simply run:
+The predicted answers are saved in *trained_model* folder. To obtain the evaluation results, simply run:
 ```
 python code/ErrorAnalysis.py \
     --data_path trained_model/convex \
@@ -70,15 +80,7 @@ python code/ErrorAnalysis.py \
     --mode breakdown  \
 ```
 
-We can obtain results as follows:
-CONVEX |
------------- |
-31.1/34.2 |
-
-The breakdown results are:
-movies | tv_series | music | books | soccer
------------- |------------ |------------ |------------ |------------ |
-30.3/47.7 | 32.6/50.0 | 30.5/51.3 | 30.9/50.7 | 31.3/50.1 |
+You can obtain the breakdown results of CONVEX.
  
 
 ## Train a New Model
@@ -102,4 +104,4 @@ CUDA_VISIBLE_DEVICES=1 python code/ConversationKBQA_Runner.py  \
         --do_policy_gradient 2\
         --learning_rate 3e-5 \
 ```
-We can also try baselines (*SimpleRecurrentRanker*, *SimpleRanker*)
+You can also try baselines (*SimpleRecurrentRanker*, *SimpleRanker*) :)
