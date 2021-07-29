@@ -1,0 +1,5 @@
+SPARQLWrapper==1.8.5
+requests==2.25.0
+numpy==1.16.6
+allennlp==1.0.0
+allennlp_models
