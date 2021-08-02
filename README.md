@@ -1,6 +1,6 @@
 # **Modeling Transitions of Focal Entities for Conversational Knowledge Base Question Answering**
 
-This is the code for the paper: [Modeling Transitions of Focal Entities for Conversational Knowledge Base Question Answering]()\
+This is the code for the paper: [Modeling Transitions of Focal Entities for Conversational Knowledge Base Question Answering](https://aclanthology.org/2021.acl-long.255/)\
 Yunshi Lan, Jing Jiang \
 [ACL2021](https://2021.aclweb.org/).
 
