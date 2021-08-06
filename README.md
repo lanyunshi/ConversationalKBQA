@@ -105,7 +105,7 @@ CUDA_VISIBLE_DEVICES=1 python code/ConversationKBQA_Runner.py  \
         --do_policy_gradient 2\
         --learning_rate 3e-5 \
 ```
-The code framework is largely developed based on [Multi-hopComplexKBQA](https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2Flanyunshi%2FMulti-hopComplexKBQA&sa=D&sntz=1&usg=AFQjCNEYTNJyPb7KVgtFkIZ9Sr9FapZwCg)
+The code framework is largely developed based on [Multi-hopComplexKBQA](https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2Flanyunshi%2FMulti-hopComplexKBQA&sa=D&sntz=1&usg=AFQjCNEYTNJyPb7KVgtFkIZ9Sr9FapZwCg).
 The training time will take around 2~3 days. The training procedure will go faster and faster as the cache saves queries in history and avoids repeating the same queires subsequently.
 You can also try baselines (*SimpleRecurrentRanker*, *SimpleRanker*) :)
 
