@@ -20,11 +20,12 @@ All codes were developed and tested in the following environment.
 * Python 3.6.9
 * Pytorch 1.4.0
 
-Download the code:
+Download the code and set up development environment:
 ```
 git clone https://github.com/lanyunshi/ConversationalKBQA.git
-pip install requirements.txt
+pip install -r requirements.txt
 ```
+To avoid installation error, make sure that your pip tool is update-to-date.
 
 ## Prepare the Data
 We evaluate our methods on [CONVEX](https://convex.mpi-inf.mpg.de/) and ConvCSQA, which is a subset of [CSQA](https://amritasaha1812.github.io/CSQA/).
@@ -34,7 +35,7 @@ To obtain the pre-processed data, you can simply run:
 ./DownloadData.sh
 python code/PreProcessConvex.py
 ```
-It takes some time to do the pre-processing. Alternatively, the processed data *CONVEX* can be downloaded from [link](https://drive.google.com/drive/folders/1MeQmdvHMLkoz4542N92kUSn1WygL85MJ?usp=sharing)
+It takes some time (1~2 hours) to do the pre-processing. Alternatively, the processed data *CONVEX* can be downloaded from [link](https://drive.google.com/drive/folders/1MeQmdvHMLkoz4542N92kUSn1WygL85MJ?usp=sharing)
 
 ## Check WikiData API is working
 Simply run:
@@ -104,4 +105,8 @@ CUDA_VISIBLE_DEVICES=1 python code/ConversationKBQA_Runner.py  \
         --do_policy_gradient 2\
         --learning_rate 3e-5 \
 ```
+The code framework is largely developed based on [Multi-hopComplexKBQA](https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2Flanyunshi%2FMulti-hopComplexKBQA&sa=D&sntz=1&usg=AFQjCNEYTNJyPb7KVgtFkIZ9Sr9FapZwCg)
+The training time will take around 2~3 days. The training procedure will go faster and faster as the cache saves queries in history and avoids repeating the same queires subsequently.
 You can also try baselines (*SimpleRecurrentRanker*, *SimpleRanker*) :)
+
+For any questions, please contact me via yslan.2015@phdcs.smu.edu.sg
